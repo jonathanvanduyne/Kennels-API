@@ -1,9 +1,25 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from views import get_all_animals, get_single_animal, create_animal, delete_animal, update_animal
-from views import get_all_locations, get_single_location, create_location, delete_location, update_location
-from views import get_all_customers, get_single_customer, create_customer, delete_customer, update_customer
-from views import get_all_employees, get_single_employee, create_employee, delete_employee, update_employee
+from views import (get_all_animals,
+                   get_single_animal,
+                   create_animal,
+                   delete_animal,
+                   update_animal)
+from views import (get_all_locations,
+                   get_single_location,
+                   create_location,
+                   delete_location,
+                   update_location)
+from views import (get_all_customers,
+                   get_single_customer,
+                   create_customer,
+                   delete_customer,
+                   update_customer)
+from views import (get_all_employees,
+                   get_single_employee,
+                   create_employee,
+                   delete_employee,
+                   update_employee)
 # Here's a class. It inherits from another class.
 # For now, think of a class as a container for functions that
 # work together for a common purpose. In this case, that
@@ -55,21 +71,21 @@ class HandleRequests(BaseHTTPRequestHandler):
             else:
                 response = get_all_animals()
 
-        if resource == "locations":
+        elif resource == "locations":
             if id is not None:
                 response = get_single_location(id)
 
             else:
                 response = get_all_locations()
 
-        if resource == "customers":
+        elif resource == "customers":
             if id is not None:
                 response = get_single_customer(id)
 
             else:
                 response = get_all_customers()
 
-        if resource == "employees":
+        elif resource == "employees":
             if id is not None:
                 response = get_single_employee(id)
 
